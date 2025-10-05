@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – N_everMin_d</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Note: You need to have the 'assets/background.mp4' file for this video to work locally. -->
+  <video autoplay muted loop id="bgVideo">
+    <source src="assets/background.mp4" type="video/mp4" />
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="quote-box">
+    <p id="quote">“Every login is a doorway…”</p>
+  </div>
+
+  <div class="mode-toggle">
+    <label>
+      <input type="checkbox" id="themeSwitch" />
+      <span>🌗 Toggle Mode</span>
+    </label>
+  </div>
+
+  <div class="main">
+    <form class="form" id="loginForm">
+      <h2>Login to N_everMin_d</h2>
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button class="btn" type="submit">Login</button>
+      <div id="googleSignIn" class="btn google">Sign in with Google</div>
+      <p class="link">Don't have an account? <a href="#" class="signup">Sign up</a></p>
+    </form>
+  </div>
+
+  <!-- Firebase logic -->
+  <script type="module" src="login.js"></script>
+
+  <!-- Quote Rotation + Mode Toggle -->
+  <script>
+    const quotes = [
+      "“Every login is a doorway…”",
+      "“Between ever mine and never mind…”",
+      "“Stories bloom where silence once lived…”",
+      "“Ideas are echoes of emotion…”"
+    ];
+    let i = 0;
+    setInterval(() => {
+      document.getElementById("quote").textContent = quotes[i];
+      i = (i + 1) % quotes.length;
+    }, 4000);
+
+    document.getElementById("themeSwitch").addEventListener("change", (e) => {
+      document.body.classList.toggle("light-mode", e.target.checked);
+    });
+  </script>
+</body>
+</html>

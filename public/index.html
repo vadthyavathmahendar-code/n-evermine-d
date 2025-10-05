@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N_everMin_d – Movie Idea Generator</title>
+  <link rel="stylesheet" href="Style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Splash Screen (Hidden/Transitioned by script.js) -->
+  <div class="splash">
+    N_everMin_d
+    <br>
+    The story begins...
+  </div>
+
+  <div class="mode-toggle">
+    <label>
+      <input type="checkbox" id="themeSwitch" />
+      <span>🌗 Toggle Mode</span>
+    </label>
+  </div>
+
+  <!-- Main Application Content (Initially hidden by Style.css, shown by script.js) -->
+  <div class="main">
+    <nav class="navbar">
+      <div class="logo">N_everMin_d</div>
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#ideaform-section">Submit Idea</a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="search" name="search" placeholder="Search Ideas" class="srch">
+        <button class="btn">Search</button> 
+      </div>
+      <div class="user-info" id="user-info">
+        <!-- User info loaded by script.js -->
+      </div>
+      <button id="logout" class="btn">Logout</button>
+    </nav>
+
+    <div class="quote-banner">
+      "Great ideas emerge from the spaces between the lines."
+    </div>
+
+    <!-- Genre Carousel -->
+    <section class="genre-carousel">
+      <h2>Explore by Genre</h2>
+      <div class="genres">
+        <div class="genre-card" data-genre="Drama">Drama</div>
+        <div class="genre-card" data-genre="Thriller">Thriller</div>
+        <div class="genre-card" data-genre="Sci-Fi">Sci-Fi</div>
+        <div class="genre-card" data-genre="Romance">Romance</div>
+        <div class="genre-card" data-genre="Fantasy">Fantasy</div>
+        <div class="genre-card" data-genre="Comedy">Comedy</div>
+      </div>
+    </section>
+    
+    <!-- Submit Idea Form -->
+    <section id="ideaform-section">
+      <h2>Submit Your Idea</h2>
+      <form id="ideaform">
+        <input type="text" id="idea-title" placeholder="Title of your movie idea" required>
+        <select id="idea-genre" required>
+          <option value="">Select Genre</option>
+          <option value="Drama">Drama</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Romance">Romance</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Comedy">Comedy</option>
+        </select>
+        <textarea id="idea-storyline" placeholder="Brief storyline summary (max 500 characters)" maxlength="500" required></textarea>
+        <input type="text" id="idea-tags" placeholder="Tags (e.g., sci-fi, aliens, love-triangle, separated by commas)">
+        <button type="submit">Post Idea</button>
+      </form>
+    </section>
+
+    <!-- Ideas Feed -->
+    <section id="ideas-feed-section">
+      <h2>Recent Ideas Feed</h2>
+      <div id="ideas-feed">
+        <!-- Ideas loaded by script.js -->
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 N_everMin_d. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- FIX: Cache-busting query added to force the browser to download the new file -->
+  <script type="module" src="script.js?v=20251005"></script>
+</body>
+</html>

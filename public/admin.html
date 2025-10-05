@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – N_everMin_d</title>
+  <link rel="stylesheet" href="Style.css" /> <!-- Using Style.css for common styles -->
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="admin-wrapper fade-in">
+    <header class="admin-header">
+      <h1>Admin Dashboard</h1>
+      <div id="admin-info" class="admin-info fade-in"></div>
+      <button id="logout" class="btn">Logout</button>
+    </header>
+
+    <section class="admin-controls fade-in">
+      <label for="genreFilter">Filter by Genre:</label>
+      <select id="genreFilter">
+        <option value="">All Genres</option>
+        <option value="Drama">Drama</option>
+        <option value="Thriller">Thriller</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Romance">Romance</option>
+        <option value="Fantasy">Fantasy</option>
+        <option value="Comedy">Comedy</option>
+      </select>
+
+      <label for="sortOptions">Sort by:</label>
+      <select id="sortOptions">
+        <option value="timestamp">Newest First</option>
+        <option value="title">Title A–Z</option>
+      </select>
+    </section>
+
+    <section id="analyticsDashboard" class="fade-in">
+      <h2>📊 Analytics Overview</h2>
+      <div class="stats-grid">
+        <div class="stat-card" id="totalIdeas">Total Ideas: —</div>
+        <div class="stat-card" id="featuredCount">Featured: —</div>
+        <div class="stat-card" id="reviewedCount">Reviewed: —</div>
+        <div class="stat-card" id="genreBreakdown">Genres: —</div>
+      </div>
+      <button id="exportCSV" class="btn">📥 Export Ideas to CSV</button>
+    </section>
+
+    <section id="featuredAdminIdeas" class="fade-in">
+      <h2>⭐ Featured Ideas</h2>
+      <div id="featuredList"></div>
+    </section>
+
+    <section id="ideas-list" class="ideas-list fade-in">
+      <!-- Ideas will be loaded here -->
+    </section>
+
+    <footer class="footer fade-in">
+      <p>&copy; 2025 N_everMin_d. Admin mode activated in Telangana.</p>
+    </footer>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- CORRECTED FIREBASE SDK IMPORTS (v10.12.0) -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

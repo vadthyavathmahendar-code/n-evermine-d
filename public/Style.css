@@ -1,0 +1,440 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(-45deg, #0f0f0f, #1c1c1c, #0f0f0f, #1c1c1c);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  color: #f5f5f5;
+  overflow-x: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Splash Screen */
+.splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 9999;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  text-align: center;
+  padding-top: 20vh; /* Center content vertically */
+  color: gold;
+  background: #000;
+  opacity: 1; /* Start visible */
+  transition: opacity 1.5s ease;
+  white-space: pre-line;
+}
+
+/* Main Wrapper */
+.main {
+  display: none; /* Hidden until auth check is complete */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 15px 30px;
+  border-bottom: 2px solid gold;
+  flex-wrap: wrap;
+  border-radius: 8px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: gold;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: gold;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.srch {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  width: 180px;
+  background: #222;
+  color: #fff;
+}
+
+.btn {
+  background: gold;
+  color: black;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  background: #ffd700;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+.btn:active {
+  transform: scale(0.95);
+}
+.btn:focus {
+  outline: 2px solid gold;
+  outline-offset: 2px;
+}
+
+/* User Info */
+.user-info {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-left: 20px;
+}
+
+.badge.user {
+  background: #444;
+  color: gold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+/* Quote Banner */
+.quote-banner {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin: 30px 0;
+  color: #ddd;
+}
+
+/* Genre Carousel */
+.genre-carousel {
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.genre-carousel h2 {
+  font-size: 1.6rem;
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.genres {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.genre-card {
+  background: #222;
+  border: 1px solid #555;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.genre-card:hover {
+  transform: scale(1.05);
+  background: gold;
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* Idea Form */
+#ideaform-section {
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background: #1a1a1a;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+#ideaform-section h2 {
+    text-align: center;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+#ideaform {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#ideaform input,
+#ideaform textarea,
+#ideaform select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #222;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+#ideaform input::placeholder,
+#ideaform textarea::placeholder {
+  color: #aaa;
+}
+
+#ideaform button {
+  align-self: flex-start;
+  margin-top: 10px;
+}
+
+/* Ideas Feed */
+#ideas-feed-section {
+    padding: 20px 0;
+    max-width: 900px;
+    margin: 40px auto;
+}
+#ideas-feed-section h2 {
+    color: gold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#ideas-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.idea-card {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.idea-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+}
+
+.idea-card h3 {
+  font-family: 'Playfair Display', serif;
+  color: gold;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.idea-card p {
+  margin-bottom: 8px;
+  color: #ddd;
+}
+
+.idea-card strong {
+    color: #fff;
+}
+
+.idea-card small {
+  color: #aaa;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #aaa;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+
+/* Theme Toggle */
+.mode-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Light Mode */
+body.light-mode {
+  background: #f4f4f4;
+  color: #222;
+  background-image: none;
+}
+
+body.light-mode .navbar {
+  background: #fff;
+  border-bottom: 2px solid #ccc;
+}
+
+body.light-mode .logo {
+  color: #222;
+}
+
+body.light-mode .menu a {
+  color: #333;
+}
+
+body.light-mode .menu a:hover {
+  color: #000;
+}
+
+body.light-mode .quote-banner {
+  color: #444;
+}
+
+body.light-mode .idea-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #222;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body.light-mode .idea-card h3 {
+    color: #333;
+}
+
+body.light-mode .btn {
+  background: #222;
+  color: #fff;
+}
+
+body.light-mode .btn:hover {
+  background: #444;
+}
+
+body.light-mode .genre-card {
+  background: #eee;
+  color: #222;
+}
+
+body.light-mode .genre-card:hover {
+  background: #ccc;
+  color: #000;
+}
+
+/* Genre Backgrounds */
+body.drama-bg { background: linear-gradient(to right, #2c2c2c, #4b1e1e); }
+body.thriller-bg { background: linear-gradient(to right, #1a1a1a, #3c3c3c); }
+body.scifi-bg { background: linear-gradient(to right, #0f0f2f, #1c1c4c); }
+body.romance-bg { background: linear-gradient(to right, #2c1a1a, #4c2c2c); }
+body.fantasy-bg { background: linear-gradient(to right, #1a2c1a, #2c4c2c); }
+body.comedy-bg { background: linear-gradient(to right, #2c2c1a, #4c4c2c); }
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: gold;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+  opacity: 0;
+  animation: fadeInOut 3s ease forwards;
+  z-index: 1000;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+  }
+  .menu ul {
+    width: 100%;
+    justify-content: space-around;
+  }
+  .search {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .srch {
+    width: 70%;
+  }
+  .btn {
+    width: 25%;
+  }
+  .user-info, #logout {
+    margin-left: 0;
+  }
+  .genre-carousel {
+    padding: 0 10px;
+  }
+  .genres {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+  .genre-card {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+}
